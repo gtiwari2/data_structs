@@ -33,3 +33,41 @@ Arr<dataType>::~Arr()
 {
 	free(m_arr);
 }
+
+template<typename dataType, size_t S>
+constexpr int Array<dataType, S>::Size() const
+{
+	return S;
+}
+
+template <typename dataType, size_t S>
+dataType& Array <dataType, S>::operator[] (size_t index) 
+{
+	return m_arr[index];
+}
+
+template <typename dataType, size_t S>
+const dataType& Array <dataType, S>::operator[] (size_t index) const 
+{
+	return m_arr[index];
+}
+
+template<typename dataType, size_t S>
+dataType* Array<dataType, S>::Data()
+{
+	return m_arr;
+}
+
+template<typename dataType, size_t S>
+const dataType* Array<dataType, S>::Data() const
+{
+	return m_arr;
+}
+
+template <typename dataType, size_t S>
+void Array<dataType, S>::PrintArr() {
+	for (auto x : m_arr)
+		std::cout << x << ' ';
+
+	std::cout << std::endl;
+}
