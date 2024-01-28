@@ -9,17 +9,23 @@ private:
 	size_t m_cur_size{ 0 }, m_total_size{ 0 };
 
 public:
+	// initializes a vector with size of 2 (elements)
 	Vector();
 
 	// initializes a vector with a given size (reserves some space)
 	Vector(size_t init_size);
+
+	// frees allocated memory
+	~Vector();
 	
 	// returns currently used size
 	size_t Size();
 
+	size_t Capacity();
+
 	// access the vector to read and write, respectively
-	const dataType& operator[] (int index) const;
-	dataType& operator[] (int index);
+	const dataType& operator[] (size_t index) const;
+	dataType& operator[] (size_t index);
 
 	// reserve some space beyond the current size
 	// copies over old data by default!
